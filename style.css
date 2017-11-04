@@ -1,0 +1,152 @@
+* {
+			padding: 0;
+			margin: 0;
+			pointer-events: none;
+			box-sizing: border-box;
+		}
+
+		body {
+			background: #2C2C2C;
+			/*background: white;*/
+			overflow: hidden;
+		font-family: "Open Sans", sans-serif;
+  		line-height: 1.25;
+			
+			font-weight: 100;
+		}
+
+		a {
+			color: #4bc2f1;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+		
+
+
+#container{
+	width: 100%;
+	max-width: 800px;
+	height: 66.66vh;
+	margin: 0 auto;
+	/*border: 2px solid white;*/
+	display: flex;
+	justify-content: space-between;
+}
+
+.track{
+	width: calc(16.66666666% - 20px);
+	border-left: 5px solid red;
+	border-right: 5px solid red;
+	height: 100%;
+	/*display: flex;*/
+}
+
+
+.triangle {
+	width: 0;
+	height: 0;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 20px solid white;
+	display: block;
+	margin: 0 auto;
+}
+	
+
+
+/*
+		PER - darker: #1E7CAB lighter: #21ACF1
+		SEM - darker: #FF5C5C  lighter: #FFADAD
+		HEA - darker: #A703CB     lighter: #EFA5FF
+		IDE - darker: #00AB31   lighter: #91FF7E
+		PAR - darker: #F8BA06       lighter: #FFDE7E
+		SYL - DARKER: #FEF300
+ ligther: #FFF97A
+		
+		*/
+
+#SYL_track{
+	border-color: #FEF300;
+	background-color: #FFF97A;
+}
+
+#PER_track{
+	border-color: #1E7CAB;
+	background-color: #21ACF1;
+}
+
+#SEM_track{
+	border-color: #FF5C5C;
+	background-color: #FFADAD;
+}
+
+#HEA_track{
+	border-color: #A703CB;
+	background-color: #EFA5FF;
+}
+
+#IDE_track{
+	border-color: #00AB31;
+	background-color: #91FF7E;
+}
+
+#PAR_track{
+	border-color: #F8BA06 ;
+	background-color: #FFDE7E;	
+}
+
+.PER{
+	background-color: #1E7CAB;
+	color: #1E7CAB;
+}
+
+.SEM{
+	background-color: #FF5C5C;
+	color: #FF5C5C;
+}
+
+.HEA{
+	background-color: #A703CB;
+	color: #A703CB;
+}
+
+.IDE{
+	background-color: #00AB31;
+	color: #00AB31;
+}
+
+.PAR{
+	background-color: #F8BA06 ;	
+	color: #F8BA06 ;
+}
+
+#toper{
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	padding: 10px;
+}
+
+.legend{
+	width: 16.66666%;
+}
+
+#box{
+	width: 100%;
+	display: flex;
+}
+
+#title{
+	width: 100%;
+	font-weight: bold;
+}
+
+#current{
+	margin: 20 auto;
+	font-weight: bold;
+	font-size: 50px;
+	text-align:center;
+}
