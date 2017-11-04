@@ -1,275 +1,56 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head></head>
+<head>
+	<title>Rhyme Demo</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, width=device-width">
+	<link href='style.css' rel='stylesheet' type='text/css'>
+
+</head>
+
 
 <body>
-<script type="text/javascript" src="dict.js"></script>
-<script>
-function getWordPronunciation(s){
-    return d[s];
-}
 
-const vowels=["AA", "AE", "AH", "AO", "AW", "AX", "AXR", "AY", "EH", "ER", "EY", "IH", "IX", "IY", "OW", "OY", "UH", "UW", "UX"];
+	<!--<div id="welcome" class="triangle"></div>-->
 
-var file = [['How', 3451, 'HH AW1'], ['does', 3658, 'D AH1 Z'], ['a', 3888, 'AH0'], ['bast', 4119, 'B AE1 S T'], ['ard,', 4537, 'AA1 R D'], ['or', 4949, 'AO1 R'], ['phan,', 5391, 'F AE1 N'], ['son', 5876, 'S AH1 N'], ['of', 6380, 'AH1 V'], ['a', 6591, 'AH0'], ['whore', 6826, 'HH AO1 R'], ['And', 7378, 'AH0 N D'], ['a', 7625, 'AH0'], ['Scots', 7865, 'S K AA1 T S'], ['man,', 8285, 'M AE1 N'], ['dropped', 8780, 'D R AA1 P T'], ['in', 9260, 'IH0 N'], ['the', 9481, 'DH AH0'], ['midd', 9725, 'M IH1 D'], ['le', 9936, 'L AH0'], ['of', 10162, 'AH1 V'], ['a', 10397, 'AH0'], ['for', 10615, 'F AO1 R'], ['got', 10930, 'G AA1 T'], ['ten', 11286, 'T EH1 N'], ['spot', 11627, 'S P AA1 T'], ['in', 12097, 'IH0 N'], ['the', 12197, 'DH AH0'], ['Car', 12566, 'K AA1 R'], ['ibb', 12601, 'IH1 B'], ['ean', 12808, 'IY1 N'], ['by', 13018, 'B AY1'], ['pro', 13273, 'P R OW1'], ['vi', 13503, 'V AY1'], ['dence', 13743, 'D EH1 N S'], ['im', 14219, 'HH IH1 M'], ['pov', 14439, 'P AA1 V'], ['er', 14688, 'AA1 R'], ['i[shed,', 14880, 'IH1 SH T'], ['In', 15188, 'IH0 N'], ['squa', 15667, 'S K W AA1'], ['lor,', 16109, 'L AO1 R'], ['grow', 16364, 'G R OW1'], ['up', 16594, 'AH1 P'], ['to', 16820, 'T UW1'], ['be', 17040, 'B IY1'], ['a', 17290, 'AH0'], ['he', 17516, 'HH IY1'], ['ro', 17746, 'R OW1'], ['and', 18000, 'AH0 N D'], ['a', 18208, 'AH0'], ['scho', 18401, 'SH OW1'], ['lar?', 18891, 'L AA1 R'], ['The', 19121, 'DH AH0'], ['ten-', 19546, 'T EH1 N'], ['doll', 19777, 'D AA1 L'], ['ar', 20224, 'AA1 R'], ['foun', 20664, 'F AW1 N'], ['ding', 20828, 'D IH1 NG'], ['fa', 21002, 'F EH1'], ['ther', 21261, 'DH EH1 R'], ['with', 21466, 'W IH1 DH'], ['out', 21687, 'AW1 T'], ['a', 21937, 'AH0'], ['fath', 22144, 'F AE1 TH'], ['er', 22416, 'AA1 R'], ['Got', 22633, 'G AA1 T'], ['a', 22903, 'AH0'], ['lot', 23349, 'L AA1 T'], ['far', 23565, 'F AA1 R'], ['ther', 23829, 'DH EH1 R'], ['by', 24054, 'B AY1'], ['work', 24275, 'W ER1 K'], ['ing', 24544, 'IH1 NG'], ['a', 24760, 'AH0'], ['lot', 25175, 'L AA1 T'], ['hard', 25404, 'HH AA1 R D'], ['er', 25682, 'AA1 R'], ['By', 25908, 'B AY1'], ['be', 26172, 'B IY1'], ['ing', 26402, 'IH1 NG'], ['a', 26603, 'AH0'], ['lot', 27032, 'L AA1 T'], ['smar', 27328, 'S M AA1 R'], ['ter', 27582, 'T ER1'], ['By', 27813, 'B AY1'], ['be', 28058, 'B IY1'], ['ing', 28276, 'IH1 NG'], ['a', 28413, 'AH0'], ['self', 28909, 'S EH1 L F'], ['start', 29181, 'S T AA1 R T'], ['er', 29407, 'AA1 R'], ['By', 29642, 'B AY1'], ['four', 30098, 'F AO1 R'], ['teen,', 30794, 'T IY1 N'], ['they', 31408, 'DH EY1'], ['placed', 31587, 'P L EY1 S T'], ['him', 31817, 'HH IH1 M'], ['in', 32046, 'IH0 N'], ['charge', 32262, 'CH AA1 R JH'], ['of', 32508, 'AH1 V'], ['a', 32723, 'AH0'], ['trad', 32925, 'T R AE1 D'], ['ing', 33141, 'IH1 NG'], ['char', 33348, 'CH AA1 R'], ['ter', 33848, 'T ER1'], ['And', 34133, 'AH0 N D'], ['eve', 34409, 'IY1 V'], ['ry', 34582, 'R EY1'], ['day', 34884, 'D EY1'], ['while', 35148, 'W AY1 L'], ['slaves', 35546, 'S L EY1 V Z'], ['were', 35829, 'W ER0'], ['be', 36050, 'B IY1'], ['ing', 36276, 'IH1 NG'], ['slaugh', 36559, 'S L AO1'], ['tered', 36808, 'T ER1 D'], ['and', 36991, 'AH0 N D'], ['car', 37361, 'K AA1 R'], ['ted', 37525, 'T EH1 D'], ['a', 37658, 'AH0'], ['way', 38081, 'W EY1'], ['A', 38302, 'AH0'], ['cross', 38515, 'K R AO1 S'], ['the', 38734, 'DH AH0'], ['waves,', 39237, 'W EY1 V Z'], ['he', 39448, 'HH IY1'], ['strug', 39684, 'S T R IH1 G'], ['gled', 39924, 'G L EH1 D'], ['and', 40178, 'AH0 N D'], ['kept', 40399, 'K EH1 P T'], ['his', 40601, 'HH IH1 Z'], ['guard', 40864, 'G AA1 R D'], ['up', 41334, 'AH1 P'], ['In', 41571, 'IH0 N'], ['side,', 42069, 'S AY1 D'], ['he', 42290, 'HH IY1'], ['was', 42530, 'W AA1 Z'], ['lon', 42742, 'L AA1 N'], ['ging', 42996, 'JH IH1 NG'], ['for', 43202, 'F AO1 R'], ['some', 43472, 'S AH1 M'], ['thing', 43693, 'TH IH1 NG'], ['to', 43927, 'T UW1'], ['be', 44147, 'B IY1'], ['a', 44388, 'AH0'], ['part', 44633, 'P AA1 R T'], ['of', 45050, 'AH1 V'], ['The', 45160, 'DH AH0'], ['bro', 45271, 'B R OW1'], ['ther', 45376, 'DH EH1 R'], ['was', 45631, 'W AA1 Z'], ['rea', 45804, 'R EY1'], ['dy', 46005, 'D IY1'], ['to', 46254, 'T UW1'], ['beg,', 46500, 'B EH1 G'], ['steal,', 47325, 'S T IY1 L'], ['bor', 47526, 'B AO1 R'], ['row,', 47728, 'R OW1'], ['or', 47920, 'AO1 R'], ['bar', 48127, 'B AA1 R'], ['ter', 48338, 'T ER1'], ['Then', 48846, 'DH EH1 N'], ['a', 49077, 'AH0'], ['hurr', 49192, 'HH ER0'], ['i', 49395, 'AY1'], ['cane', 50257, 'K EY1 N'], ['came,', 50624, 'K EY1 M'], ['and', 50847, 'AH0 N D'], ['de', 51465, 'D IY1'], ['va', 51477, 'V AH1'], ['sta', 51698, 'S T AH1'], ['tion', 51969, 'SH AA1 N'], ['reigned', 52375, 'R EY1 N D'], ['Our', 52639, 'AW1 ER0'], ['man', 53286, 'M AE1 N'], ['saw', 53570, 'S AO1'], ['his', 53815, 'HH IH1 Z'], ['fu', 54040, 'F UW1'], ['ture', 54285, 'T UH1 R'], ['drip,', 54709, 'D R IH1 P'], ['drip', 54942, 'D R IH1 P'], ['ping', 55226, 'P IH1 NG'], ['down', 55458, 'D AW1 N'], ['the', 55706, 'DH AH0'], ['drain', 56263, 'D R EY1 N'], ['Put', 56512, 'P UH1 T'], ['a', 56609, 'AH0'], ['pen', 56872, 'P EH1 N'], ['cil', 57112, 'S IH1 L'], ['to', 57333, 'T UW1'], ['his', 57581, 'HH IH1 Z'], ['tem', 57800, 'T EH1 M'], ['ple,', 58053, 'P IH1 L'], ['con', 58280, 'K AA1 N'], ['nec', 58514, 'N EH1 K'], ['ted', 58773, 'T EH1 D'], ['it', 58980, 'IH1 T'], ['to', 59210, 'T UW1'], ['his', 59468, 'HH IH1 Z'], ['brain', 59896, 'B R EY1 N'], ['And', 60304, 'AH0 N D'], ['he', 60443, 'HH IY1'], ['wrote', 60631, 'R OW1 T'], ['his', 60875, 'HH IH1 Z'], ['first', 61106, 'F ER1 S T'], ['re', 61322, 'R EY1'], ['frain,', 61758, 'F R EY1 N'], ['a', 62042, 'AH0'], ['test', 62253, 'T EH1 S T'], ['a', 62508, 'AH0'], ['ment', 62782, 'M EH1 N T'], ['to', 62953, 'T UW1'], ['his', 63208, 'HH IH1 Z'], ['pain', 63578, 'P EY1 N'], ['Well,', 63992, 'W EH1 L'], ['the', 64144, 'DH AH0'], ['word', 64610, 'W ER1 D'], ['got', 64842, 'G AA1 T'], ['a', 65100, 'AH0'], ['round,', 65599, 'ER0 AW1 N D'], ['they', 65773, 'DH EY1'], ['said,', 66006, 'S EH1 D'], ['this', 66314, 'DH IH1 S'], ['kid', 66501, 'K IH1 D'], ['is', 66731, 'IH1 Z'], ['in', 66981, 'IH0 N'], ['sane,', 67414, 'S EY1 N'], ['man', 67898, 'M AE1 N'], ['Took', 68119, 'T UH1 K'], ['up', 68349, 'AH1 P'], ['a', 68604, 'AH0'], ['coll', 68829, 'K AA1 L'], ['ect', 69045, 'EH1 K T'], ['ion', 69295, 'AY1 AH0 N'], ['just', 69516, 'JH AH1 S T'], ['to', 69746, 'T UW1'], ['send', 70019, 'S EH1 N D'], ['him', 70226, 'HH IH1 M'], ['to', 70461, 'T UW1'], ['the', 70715, 'DH AH0'], ['main', 71119, 'M EY1 N'], ['land', 71652, 'L AE1 N D'], ['Get', 71858, 'G EH1 T'], ['your', 72097, 'Y AO1 R'], ['ed', 72318, 'EH1 D'], ['u', 72549, 'Y UW1'], ['cat', 72789, 'K AE1 T'], ['ion,', 73043, 'AY1 AH0 N'], ['don\'t', 73278, 'D AA1 N T'], ['for', 73514, 'F AO1 R'], ['get', 73745, 'G EH1 T'], ['from', 73998, 'F R AH1 M'], ['whence', 74224, 'W EH1 N S'], ['you', 74554, 'Y UW1'], ['came', 74922, 'K EY1 M'], ['And', 75373, 'AH0 N D'], ['the', 75480, 'DH AH0'], ['world', 75882, 'W ER1 L D'], ['is', 76031, 'IH1 Z'], ['go', 76276, 'G OW1'], ['nna', 76497, 'N AA1'], ['know', 76597, 'N OW1'], ['your', 76924, 'Y AO1 R'], ['name', 77621, 'N EY1 M'], ['What\'s', 77879, 'W UH1 D Z'], ['your', 78129, 'Y AO1 R'], ['name,', 78585, 'N EY1 M'], ['man?', 79169, 'M AE1 N'], ['A', 79375, 'AH0'], ['lex', 79581, 'L EH1 K S'], ['an', 79831, 'AE1 N'], ['der', 80075, 'D ER1'], ['Ham', 80291, 'HH AE1 M'], ['il', 80527, 'IH1 L'], ['ton', 82300, 'T AH1 N'], ['My', 82522, 'M AY1'], ['name', 82687, 'N EY1 M'], ['is', 82936, 'IH1 Z'], ['Al', 83172, 'AE1 L'], ['ex', 83407, 'EH1 K S'], ['an', 83603, 'AE1 N'], ['der', 83893, 'D ER1'], ['Ham', 84126, 'HH AE1 M'], ['il', 84376, 'IH1 L'], ['ton', 86366, 'T AH1 N'], ['And', 86466, 'AH0 N D'], ['there\'s', 86750, 'TH IH1 R IY0 Z'], ['a', 86894, 'AH0'], ['mil', 87095, 'M IH1 L'], ['li', 87306, 'L IY1'], ['on', 87534, 'AA1 N'], ['things', 87671, 'TH IH1 NG Z'], ['I', 87998, 'AY1'], ['ha', 88099, 'HH AA1'], ['ven\'t', 88266, 'V EH1 N T'], ['done', 88737, 'D AH1 N'], ['But', 89812, 'B AH1 T'], ['just', 90145, 'JH AH1 S T'], ['you', 90605, 'Y UW1'], ['wait,', 91598, 'W EY1 T'], ['just', 92020, 'JH AH1 S T'], ['you', 92562, 'Y UW1'], ['wait', 93959, 'W EY1 T'], ['When', 94066, 'W EH1 N'], ['he', 94178, 'HH IY1'], ['was', 94392, 'W AA1 Z'], ['ten', 94871, 'T EH1 N'], ['his', 95073, 'HH IH1 Z'], ['fa', 95183, 'F EH1'], ['ther', 95380, 'DH EH1 R'], ['split,', 95831, 'S P L IH1 T'], ['full', 96052, 'F UH1 L'], ['of', 96293, 'AH1 V'], ['it,', 96744, 'IH1 T'], ['debt-', 97209, 'D EH1 T'], ['rid', 97449, 'R IH1 D'], ['den', 97805, 'D EH1 N'], ['Two', 97960, 'T UW1'], ['years', 98488, 'Y IH1 R Z'], ['la', 98680, 'L AO1'], ['ter,', 98905, 'T ER1'], ['see', 99112, 'S IY1'], ['Al', 99357, 'AE1 L'], ['ex', 99602, 'EH1 K S'], ['and', 99823, 'AH0 N D'], ['his', 100043, 'HH IH1 Z'], ['mo', 100259, 'M OW1'], ['ther', 100485, 'DH EH1 R'], ['bed-rid', 101263, 'B EH1 D R IH0 D'], ['den', 101570, 'D EH1 N'], ['Half-dead', 102488, 'HH AE1 F D EH0 D'], ['sit', 102767, 'S IH1 T'], ["tin'", 102843, 'T IH1 N'], ['in', 103064, 'IH0 N'], ['their', 103280, 'DH EH1 R'], ['own', 103699, 'OW1 N'], ['sick,', 104216, 'S IH1 K'], ['the', 104485, 'DH AH0'], ['scent', 104987, 'S EH1 N T'], ['thick', 105277, 'TH IH1 K'], ['And', 105642, 'AH0 N D'], ['A', 105733, 'AH0'], ['lex', 106012, 'L EH1 K S'], ['got', 106204, 'G AA1 T'], ['bet', 106801, 'B EH1 T'], ['ter', 107062, 'T ER1'], ['but', 107280, 'B AH1 T'], ['his', 107523, 'HH IH1 Z'], ['mo', 107750, 'M OW1'], ['ther', 108008, 'DH EH1 R'], ['went', 108374, 'W EH1 N T'], ['quick', 109805, 'K W IH1 K'], ['Moved', 109963, 'M UW1 V D'], ['in', 110068, 'IH0 N'], ['with', 110179, 'W IH1 DH'], ['a', 110428, 'AH0'], ['cous', 110606, 'K EY1'], ['in,', 110874, 'IH0 N'], ['the', 111100, 'DH AH0'], ['cous', 111325, 'K EY1'], ['in', 111590, 'IH0 N'], ['com', 111820, 'K AA1 M'], ['mit', 112046, 'EH1 M AY1 T IY1'], ['ted', 112310, 'T EH1 D'], ['su', 112511, 'S UW1'], ['i', 112791, 'AY1'], ['cide', 113256, 'S AY1 D'], ['Left', 113486, 'L EH1 F T'], ['him', 113735, 'HH IH1 M'], ['with', 113961, 'W IH1 DH'], ['no', 114163, 'N OW1'], ["thin'", 114398, 'TH IH1 N'], ['but', 114638, 'B AH1 T'], ['ru', 114849, 'R UW1'], ['ined', 115086, 'IH0 N D'], ['pride,', 115540, 'P R AY1 D'], ['some', 115761, 'S AH1 M'], ['thing', 116001, 'TH IH1 NG'], ['new', 116237, 'N UW1'], ['in', 116481, 'IH0 N'], ['side', 116930, 'S AY1 D'], ['voice', 117398, 'V OY1 S'], ['say', 117628, 'S EY1'], ['ing', 117869, 'IH1 NG'], ['Alex,', 118324, 'AE1 L AH0 K S'], ['you', 118530, 'Y UW1'], ['got', 118748, 'G AA1 T'], ['ta', 118998, 'T AA1'], ['fend', 119203, 'F EH1 N D'], ['for', 119448, 'F AO1 R'], ['your', 119721, 'Y AO1 R'], ['self', 120081, 'S EH1 L F'], ['He', 120215, 'HH IY1'], ['start', 120389, 'S T AA1 R T'], ['ed', 120609, 'EH1 D'], ['re', 120829, 'R EY1'], ['treat', 121050, 'T R IY1 T'], ["in'", 121296, 'IH0 N'], ['and', 121530, 'AH0 N D'], ['read', 121713, 'R EH1 D'], ["in'", 121929, 'IH0 N'], ['every', 122136, 'EH1 V ER0 IY0'], ['treat', 122361, 'T R IY1 T'], ['ise', 122577, 'AY1 Z'], ['on', 122879, 'AA1 N'], ['the', 123191, 'DH AH0'], ['shelf', 124082, 'SH EH1 L F'], ['There', 124221, 'DH EH1 R'], ['would', 124350, 'W UH1 D'], ['have', 124583, 'HH AE1 V'], ['been', 124694, 'B IH1 N'], ['no', 124921, 'N OW1'], ["thin'", 125077, 'TH IH1 N'], ['left', 125116, 'L EH1 F T'], ['to', 125236, 'T UW1'], ['do', 125347, 'D UW1'], ['for', 125476, 'F AO1 R'], ['some', 125918, 'S AH1 M'], ['one', 126547, 'W AH1 N'], ['less', 126652, 'L EH1 S'], ['a', 126859, 'AH0'], ['stute', 127118, 'S T UW1 T'], ['He', 127209, 'HH IY1'], ['would', 127312, 'W UH1 D'], ['a', 127459, 'AH0'], ['been', 127715, 'B IH1 N'], ['dead', 128006, 'D EH1 D'], ['or', 128145, 'AO1 R'], ['des', 128342, 'D EH1'], ['ti', 128548, 'T IY1'], ['tute', 128870, 'T Y UW1 T'], ['with', 129049, 'W IH1 DH'], ['out', 129119, 'AW1 T'], ['a', 129263, 'AH0'], ['cent', 129465, 'S EH1 N T'], ['of', 129662, 'AH1 V'], ['res', 129907, 'R EY1 Z'], ['ti', 130084, 'T IY1'], ['tu', 130324, 'T UW1'], ['tion', 130850, 'SH AA1 N'], ['Start', 130964, 'S T AA1 R T'], ['ed', 131198, 'EH1 D'], ['wor', 131443, 'W AO1 R'], ["kin',", 131654, 'K IH1 N'], ['cler', 132287, 'K L EH1 R'], ["kin'", 132571, 'K IH1 N'], ['for', 132758, 'F AO1 R'], ['his', 132969, 'HH IH1 Z'], ['late', 133372, 'L EY1 T'], ['mo', 133579, 'M OW1'], ['ther\'s', 134036, 'TH ER1 Z'], ['land', 134256, 'L AE1 N D'], ['lord', 134706, 'L AO1 R D'], ['Tra', 134935, 'T R AA1'], ["din'", 135206, 'D IH1 N'], ['su', 135407, 'S UW1'], ['gar', 135647, 'G AA1 R'], ['cane', 135956, 'K EY1 N'], ['and', 136060, 'AH0 N D'], ['rum', 136176, 'R AH1 M'], ['and', 136329, 'AH0 N D'], ['all', 136506, 'AO1 L'], ['the', 136703, 'DH AH0'], ['things', 136917, 'TH IH1 NG Z'], ['he', 137126, 'HH IY1'], ['can\'t', 137367, 'K AE1 N T'], ['af', 137577, 'AH1 F'], ['ford', 138287, 'F AO1 R D'], ['Scam', 138484, 'S K AE1 M'], ["min'", 138710, 'M IH1 N'], ['for', 138911, 'F AO1 R'], ['e', 139382, 'IY1'], ['ver', 139578, 'V ER1'], ['y', 139799, 'W AY1'], ['book', 140098, 'B UH1 K'], ['he', 140236, 'HH IY1'], ['can', 140472, 'K AE1 N'], ['get', 140712, 'G EH1 T'], ['his', 140951, 'HH IH1 Z'], ['hands', 141359, 'HH AE1 N D Z'], ['on', 141831, 'AA1 N'], ['Plan', 142036, 'P L AE1 N'], ["nin'", 142267, 'N IH1 N'], ['for', 142473, 'F AO1 R'], ['the', 142701, 'DH AH0'], ['fu', 142886, 'F UW1'], ['ture', 143116, 'T UH1 R'], ['see', 143341, 'S IY1'], ['him', 143606, 'HH IH1 M'], ['now', 144004, 'N AW1'], ['as', 144230, 'AE1 Z'], ['he', 144511, 'HH IY1'], ['stands', 144882, 'S T AE1 N D Z'], ['on', 145113, 'AA1 N'], ['the', 145375, 'DH AH0'], ['bow', 145766, 'B AW1'], ['of', 145981, 'AH1 V'], ['a', 146235, 'AH0'], ['ship', 146635, 'SH IH1 P'], ['head', 146851, 'HH EH1 D'], ['ed', 147092, 'EH1 D'], ['for', 147321, 'F AO1 R'], ['a', 147568, 'AH0'], ['new', 147926, 'N UW1'], ['land', 148439, 'L AE1 N D'], ['In', 148907, 'IH0 N'], ['New', 149262, 'N UW1'], ['York', 149683, 'Y AO1 R K'], ['you', 149932, 'Y UW1'], ['can', 150609, 'K AE1 N'], ['be', 150853, 'B IY1'], ['a', 151149, 'AH0'], ['new', 151503, 'N UW1'], ['man', 152179, 'M AE1 N'], ['In', 152399, 'IH0 N'], ['New', 152808, 'N UW1'], ['York', 153249, 'Y AO1 R K'], ['you', 153652, 'Y UW1'], ['can', 154127, 'K AE1 N'], ['be', 154357, 'B IY1'], ['a', 154569, 'AH0'], ['new', 154991, 'N UW1'], ['man', 155707, 'M AE1 N'], ['In', 155908, 'IH0 N'], ['New', 156325, 'N UW1'], ['York', 156744, 'Y AO1 R K'], ['you', 156940, 'Y UW1'], ['can', 157603, 'K AE1 N'], ['be', 157818, 'B IY1'], ['a', 158150, 'AH0'], ['new', 158462, 'N UW1'], ['man', 159144, 'M AE1 N'], ['In', 159404, 'IH0 N'], ['New', 159807, 'N UW1'], ['York', 160262, 'Y AO1 R K'], ['you', 160703, 'Y UW1'], ['can', 161150, 'K AE1 N'], ['be', 161404, 'B IY1'], ['a', 161620, 'AH0'], ['new', 162024, 'N UW1'], ['man', 162691, 'M AE1 N'], ['In', 163042, 'IH0 N'], ['New', 163358, 'N UW1'], ['York', 163832, 'Y AO1 R K'], ['you', 164204, 'Y UW1'], ['can', 164675, 'K AE1 N'], ['Just', 164681, 'JH AH1 S T'], ['you', 165141, 'Y UW1'], ['wait', 165559, 'W EY1 T'], ['Al', 166421, 'AE1 L'], ['ex', 166686, 'EH1 K S'], ['and', 166925, 'AH0 N D'], ['er', 167166, 'AA1 R'], ['Ham', 167391, 'HH AE1 M'], ['il', 167592, 'IH1 L'], ['ton', 168805, 'T AH1 N'], ['We', 169632, 'W IY1'], ['are', 170049, 'AA1 R'], ['wai', 170236, 'W AY1'], ['ting', 170378, 'T IH1 NG'], ['in', 170505, 'IH0 N'], ['the', 170682, 'DH AH0'], ['wings', 170958, 'W IH1 NG Z'], ['for', 171307, 'F AO1 R'], ['you', 171610, 'Y UW1'], ['You', 173212, 'Y UW1'], ['could', 173343, 'K UH1 D'], ['ne', 173586, 'N IY1'], ['ver', 173773, 'V ER1'], ['back', 173985, 'B AE1 K'], ['down', 174444, 'D AW1 N'], ['You', 174902, 'Y UW1'], ['never', 175099, 'N EH1 V ER0'], ['learned', 175301, 'L ER1 N D'], ['to', 175929, 'T UW1'], ['take', 176165, 'T EY1 K'], ['your', 176554, 'Y AO1 R'], ['time', 177571, 'T AY1 M'], ['Oh,', 179847, 'OW1'], ['A', 180687, 'AH0'], ['lex', 180870, 'L EH1 K S'], ['an', 181090, 'AE1 N'], ['der', 181311, 'D ER1'], ['Ham', 181556, 'HH AE1 M'], ['il', 181767, 'IH1 L'], ['ton', 182017, 'T AH1 N'], ['When', 183779, 'W EH1 N'], ['A', 183994, 'AH0'], ['mer', 184215, 'M EH1 R'], ['i', 184442, 'AY1'], ['ca', 184666, 'K AH1'], ['sings', 185041, 'S IH1 NG Z'], ['for', 185477, 'F AO1 R'], ['you', 185689, 'Y UW1'], ['Will', 187326, 'W IH1 L'], ['they', 187558, 'DH EY1'], ['know', 187740, 'N OW1'], ['what', 187836, 'W AH1 T'], ['you', 188211, 'Y UW1'], ['o', 188526, 'OW1'], ['ver', 188872, 'V ER1'], ['came?', 189365, 'K EY1 M'], ['Will', 190820, 'W IH1 L'], ['they', 190926, 'DH EY1'], ['know', 191070, 'N OW1'], ['you', 191276, 'Y UW1'], ['re', 191670, 'R EY1'], ['wrote', 191863, 'R OW1 T'], ['your', 192012, 'Y AO1 R'], ['game?', 192424, 'G EY1 M'], ['The', 194270, 'DH AH0'], ['world', 194428, 'W ER1 L D'], ['will', 194534, 'W IH1 L'], ['ne', 195225, 'N IY1'], ['ver', 197072, 'V ER1'], ['be', 198097, 'B IY1'], ['the', 198785, 'DH AH0'], ['same,', 199647, 'S EY1 M'], ['oh', 200779, 'OW1'], ['The', 200874, 'DH AH0'], ['ship', 201452, 'SH IH1 P'], ['is', 202131, 'IH1 Z'], ['in', 202280, 'IH0 N'], ['the', 202500, 'DH AH0'], ['har', 202714, 'HH AA1 R'], ['bor', 202958, 'B AO1 R'], ['now', 203131, 'N AW1'], ['See', 203605, 'S IY1'], ['if', 203803, 'IH1 F'], ['you', 204043, 'Y UW1'], ['can', 204259, 'K AE1 N'], ['spot', 204480, 'S P AA1 T'], ['him', 204705, 'HH IH1 M'], ['A', 205262, 'AH0'], ['noth', 205828, 'N AA1 TH'], ['er', 206045, 'AA1 R'], ['im', 206289, 'HH IH1 M'], ['mi', 206505, 'M IY1'], ['grant', 206712, 'G R AE1 N T'], ['com', 206980, 'K AA1 M'], ["in'", 207145, 'IH0 N'], ['up', 207359, 'AH1 P'], ['from', 207576, 'F R AH1 M'], ['the', 207786, 'DH AH0'], ['bot', 208026, 'B AA1 T'], ['tom', 208241, 'T AA1 M'], ['His', 208847, 'HH IH1 Z'], ['e', 209001, 'IY1'], ['nem', 209178, 'N EH1 M'], ['ies', 209377, 'IY1 Z'], ['de', 209606, 'D IY1'], ['stroyed', 209803, 'S T ER0 OY1 D'], ['his', 210148, 'HH IH1 Z'], ['rep', 210249, 'R EH1 P'], ['A', 210393, 'AH0'], ['mer', 210657, 'M EH1 R'], ['i', 210854, 'AY1'], ['ca', 211098, 'K AH1'], ['for', 211324, 'F AO1 R'], ['got', 211554, 'G AA1 T'], ['him', 211770, 'HH IH1 M'], ['We', 212237, 'W IY1'], ['fought', 212850, 'F AO1 T'], ['with', 213556, 'W IH1 DH'], ['him', 213753, 'HH IH1 M'], ['Me,', 214185, 'M IY1'], ['I', 214641, 'AY1'], ['died', 214868, 'D AY1 D'], ['for', 215299, 'F AO1 R'], ['him', 215524, 'HH IH1 M'], ['Me,', 215961, 'M IY1'], ['I', 216389, 'AY1'], ['trust', 216643, 'T R AH1 S T'], ['ed', 217036, 'EH1 D'], ['him', 217252, 'HH IH1 M'], ['Me,', 217680, 'M IY1'], ['I', 218140, 'AY1'], ['loved', 218386, 'L AH1 V D'], ['him', 218659, 'HH IH1 M'], ['And', 219235, 'AH0 N D'], ['me,', 219350, 'M IY1'], ['I\'m', 220099, 'HH IH1 M'], ['the', 221069, 'DH AH0'], ['damn', 221372, 'D AE1 M'], ['fool', 221461, 'F UW1 L'], ['that', 221548, 'DH AE1 T'], ['shot', 221961, 'SH AA1 T'], ['him', 222354, 'HH IH1 M'], ['There\'s', 222839, 'TH IH1 R IY0 Z'], ['a', 224054, 'AH0'], ['mill', 224213, 'M IH1 L'], ['i', 224318, 'AY1'], ['on', 224391, 'AA1 N'], ['things', 224476, 'TH IH1 NG Z'], ['I', 224706, 'AY1'], ['hav', 224874, 'HH AE1 V'], ['en\'t', 225086, 'EH1 N T'], ['done', 225303, 'D AH1 N'], ['But', 226344, 'B AH1 T'], ['just', 226626, 'JH AH1 S T'], ['you', 226982, 'Y UW1'], ['wait', 227424, 'W EY1 T'], ['What\'s', 229797, 'W UH1 D Z'], ['your', 229989, 'Y AO1 R'], ['name,', 230200, 'N EY1 M'], ['man?', 230647, 'M AE1 N'], ['A', 231256, 'AH0'], ['lex', 231400, 'L EH1 K S'], ['an', 231606, 'AE1 N'], ['der', 231817, 'D ER1'], ['Ham', 232054, 'HH AE1 M'], ['il', 232259, 'IH1 L'], ['ton', 232505, 'T AH1 N']]
+<div id="toper">
+      
+      
+      <!--<div id ="title">Rhyme Sheme</div>-->
+      
+      <div id = "box">
 
-const file2 = [[0, 0, 1], [1, 1, 1], [2, 2, 1], [3, 3, 2], [4, 5, 2], [5, 7, 1], [6, 8, 1], [7, 9, 1], [8, 10, 1], [9, 11, 1], [10, 12, 1], [11, 13, 2], [12, 15, 1], [13, 16, 1], [14, 17, 1], [15, 18, 2], [16, 20, 1], [17, 21, 1], [18, 22, 3], [19, 25, 1], [20, 26, 1], [21, 27, 1], [22, 28, 3], [23, 31, 1], [24, 32, 3], [25, 35, 4], [26, 39, 1], [27, 40, 2], [28, 42, 1], [29, 43, 1], [30, 44, 1], [31, 45, 1], [32, 46, 1], [33, 47, 2], [34, 49, 1], [35, 50, 1], [36, 51, 2], [37, 53, 1], [38, 54, 3], [39, 57, 2], [40, 59, 2], [41, 61, 2], [42, 63, 1], [43, 64, 2], [44, 66, 1], [45, 67, 1], [46, 68, 1], [47, 69, 2], [48, 71, 1], [49, 72, 2], [50, 74, 1], [51, 75, 1], [52, 76, 2], [53, 78, 1], [54, 79, 2], [55, 81, 1], [56, 82, 1], [57, 83, 2], [58, 85, 1], [59, 86, 2], [60, 88, 1], [61, 89, 3], [62, 92, 1], [63, 93, 2], [64, 95, 1], [65, 96, 1], [66, 97, 1], [67, 98, 1], [68, 99, 1], [69, 100, 1], [70, 101, 1], [71, 102, 2], [72, 104, 2], [73, 106, 1], [74, 107, 2], [75, 109, 1], [76, 110, 1], [77, 111, 1], [78, 112, 1], [79, 113, 2], [80, 115, 2], [81, 117, 1], [82, 118, 2], [83, 120, 2], [84, 122, 2], [85, 124, 1], [86, 125, 1], [87, 126, 1], [88, 127, 2], [89, 129, 1], [90, 130, 1], [91, 131, 1], [92, 132, 1], [93, 133, 1], [94, 134, 2], [95, 136, 1], [96, 137, 1], [97, 138, 2], [98, 140, 1], [99, 141, 2], [100, 143, 1], [101, 144, 1], [102, 145, 1], [103, 146, 1], [104, 147, 1], [105, 148, 1], [106, 149, 2], [107, 151, 1], [108, 152, 2], [109, 154, 1], [110, 155, 1], [111, 156, 1], [112, 157, 2], [113, 159, 1], [114, 160, 2], [115, 162, 1], [116, 163, 1], [117, 164, 3], [118, 167, 1], [119, 168, 1], [120, 169, 4], [121, 173, 1], [122, 174, 1], [123, 175, 1], [124, 176, 1], [125, 177, 1], [126, 178, 2], [127, 180, 1], [128, 181, 2], [129, 183, 1], [130, 184, 1], [131, 185, 1], [132, 186, 1], [133, 187, 1], [134, 188, 2], [135, 190, 1], [136, 191, 1], [137, 192, 2], [138, 194, 3], [139, 197, 1], [140, 198, 1], [141, 199, 1], [142, 200, 1], [143, 201, 1], [144, 202, 1], [145, 203, 1], [146, 204, 1], [147, 205, 1], [148, 206, 2], [149, 208, 1], [150, 209, 3], [151, 212, 1], [152, 213, 1], [153, 214, 1], [154, 215, 1], [155, 216, 1], [156, 217, 1], [157, 218, 1], [158, 219, 2], [159, 221, 1], [160, 222, 1], [161, 223, 1], [162, 224, 1], [163, 225, 1], [164, 226, 2], [165, 228, 1], [166, 229, 1], [167, 230, 1], [168, 231, 1], [169, 232, 3], [170, 235, 1], [171, 236, 1], [172, 237, 1], [173, 238, 1], [174, 239, 1], [175, 240, 1], [176, 241, 2], [177, 243, 1], [178, 244, 1], [179, 245, 4], [180, 249, 1], [181, 250, 2], [182, 252, 1], [183, 253, 1], [184, 254, 1], [185, 255, 1], [186, 256, 1], [187, 257, 1], [188, 258, 1], [189, 259, 1], [190, 260, 2], [191, 262, 1], [192, 263, 1], [193, 264, 1], [194, 265, 1], [195, 266, 1], [196, 267, 1], [197, 268, 1], [198, 269, 4], [199, 273, 3], [200, 276, 1], [201, 277, 1], [202, 278, 1], [203, 279, 4], [204, 283, 3], [205, 286, 1], [206, 287, 1], [207, 288, 1], [208, 289, 3], [209, 292, 1], [210, 293, 1], [211, 294, 2], [212, 296, 1], [213, 297, 1], [214, 298, 1], [215, 299, 1], [216, 300, 1], [217, 301, 1], [218, 302, 1], [219, 303, 1], [220, 304, 1], [221, 305, 1], [222, 306, 1], [223, 307, 1], [224, 308, 1], [225, 309, 2], [226, 311, 1], [227, 312, 1], [228, 313, 1], [229, 314, 1], [230, 315, 3], [231, 318, 1], [232, 319, 1], [233, 320, 2], [234, 322, 1], [235, 323, 2], [236, 325, 1], [237, 326, 1], [238, 327, 2], [239, 329, 2], [240, 331, 1], [241, 332, 2], [242, 334, 1], [243, 335, 1], [244, 336, 1], [245, 337, 1], [246, 338, 1], [247, 339, 1], [248, 340, 1], [249, 341, 1], [250, 342, 2], [251, 344, 1], [252, 345, 2], [253, 347, 1], [254, 348, 1], [255, 349, 2], [256, 351, 1], [257, 352, 1], [258, 353, 1], [259, 354, 1], [260, 355, 1], [261, 356, 1], [262, 357, 2], [263, 359, 1], [264, 360, 2], [265, 362, 3], [266, 365, 3], [267, 368, 1], [268, 369, 1], [269, 370, 1], [270, 371, 2], [271, 373, 1], [272, 374, 2], [273, 376, 1], [274, 377, 2], [275, 379, 1], [276, 380, 2], [277, 382, 1], [278, 383, 2], [279, 385, 1], [280, 386, 1], [281, 387, 2], [282, 389, 1], [283, 390, 1], [284, 391, 2], [285, 393, 1], [286, 394, 2], [287, 396, 3], [288, 399, 1], [289, 400, 2], [290, 402, 1], [291, 403, 2], [292, 405, 1], [293, 406, 1], [294, 407, 1], [295, 408, 1], [296, 409, 1], [297, 410, 1], [298, 411, 1], [299, 412, 2], [300, 414, 1], [301, 415, 1], [302, 416, 1], [303, 417, 1], [304, 418, 2], [305, 420, 1], [306, 421, 2], [307, 423, 1], [308, 424, 2], [309, 426, 1], [310, 427, 1], [311, 428, 1], [312, 429, 3], [313, 432, 2], [314, 434, 1], [315, 435, 1], [316, 436, 1], [317, 437, 4], [318, 441, 2], [319, 443, 2], [320, 445, 2], [321, 447, 1], [322, 448, 1], [323, 449, 1], [324, 450, 2], [325, 452, 2], [326, 454, 2], [327, 456, 2], [328, 458, 1], [329, 459, 1], [330, 460, 1], [331, 461, 1], [332, 462, 1], [333, 463, 1], [334, 464, 1], [335, 465, 1], [336, 466, 1], [337, 467, 2], [338, 469, 2], [339, 471, 1], [340, 472, 3], [341, 475, 1], [342, 476, 1], [343, 477, 1], [344, 478, 1], [345, 479, 1], [346, 480, 1], [347, 481, 1], [348, 482, 2], [349, 484, 1], [350, 485, 1], [351, 486, 2], [352, 488, 1], [353, 489, 1], [354, 490, 1], [355, 491, 1], [356, 492, 1], [357, 493, 1], [358, 494, 1], [359, 495, 1], [360, 496, 1], [361, 497, 1], [362, 498, 1], [363, 499, 1], [364, 500, 2], [365, 502, 1], [366, 503, 1], [367, 504, 1], [368, 505, 1], [369, 506, 1], [370, 507, 1], [371, 508, 1], [372, 509, 1], [373, 510, 1], [374, 511, 1], [375, 512, 1], [376, 513, 1], [377, 514, 1], [378, 515, 1], [379, 516, 1], [380, 517, 1], [381, 518, 1], [382, 519, 1], [383, 520, 1], [384, 521, 1], [385, 522, 1], [386, 523, 1], [387, 524, 1], [388, 525, 1], [389, 526, 1], [390, 527, 1], [391, 528, 1], [392, 529, 1], [393, 530, 1], [394, 531, 1], [395, 532, 1], [396, 533, 1], [397, 534, 1], [398, 535, 1], [399, 536, 1], [400, 537, 1], [401, 538, 1], [402, 539, 1], [403, 540, 1], [404, 541, 1], [405, 542, 1], [406, 543, 1], [407, 544, 1], [408, 545, 1], [409, 546, 1], [414, 547, 1], [415, 548, 1], [416, 549, 1], [417, 550, 4], [418, 554, 3], [419, 557, 1], [420, 558, 1], [421, 559, 2], [422, 561, 1], [423, 562, 1], [424, 563, 1], [425, 564, 1], [426, 565, 1], [427, 566, 1], [428, 567, 1], [429, 568, 2], [430, 570, 1], [431, 571, 1], [432, 572, 1], [433, 573, 1], [434, 574, 1], [435, 575, 1], [436, 576, 1], [437, 577, 1], [438, 578, 1], [439, 579, 1], [440, 580, 4], [441, 584, 3], [442, 587, 1], [443, 588, 4], [444, 592, 1], [445, 593, 1], [446, 594, 1], [447, 595, 1], [448, 596, 1], [449, 597, 1], [450, 598, 1], [451, 599, 1], [452, 600, 3], [453, 603, 1], [454, 604, 1], [455, 605, 1], [456, 606, 1], [457, 607, 2], [458, 609, 1], [459, 610, 1], [460, 611, 1], [461, 612, 1], [462, 613, 1], [463, 614, 2], [464, 616, 1], [465, 617, 1], [466, 618, 1], [467, 619, 1], [468, 620, 1], [469, 621, 1], [470, 622, 1], [471, 623, 1], [472, 624, 1], [473, 625, 2], [474, 627, 1], [475, 628, 1], [476, 629, 1], [477, 630, 1], [478, 631, 1], [479, 632, 1], [480, 633, 1], [481, 634, 3], [482, 637, 3], [483, 640, 2], [484, 642, 1], [485, 643, 1], [486, 644, 1], [487, 645, 2], [488, 647, 1], [489, 648, 3], [490, 651, 2], [491, 653, 1], [492, 654, 1], [493, 655, 4], [494, 659, 2], [495, 661, 1], [496, 662, 1], [497, 663, 1], [498, 664, 1], [499, 665, 1], [500, 666, 1], [501, 667, 1], [502, 668, 1], [503, 669, 1], [504, 670, 1], [505, 671, 1], [506, 672, 1], [507, 673, 2], [508, 675, 1], [509, 676, 1], [510, 677, 1], [511, 678, 1], [512, 679, 1], [513, 680, 1], [514, 681, 1], [515, 682, 1], [516, 683, 1], [517, 684, 1], [518, 685, 1], [519, 686, 1], [520, 687, 1], [521, 688, 1], [522, 689, 1], [523, 690, 1], [524, 691, 3], [525, 694, 1], [526, 695, 1], [527, 696, 2], [528, 698, 1], [529, 699, 1], [530, 700, 1], [531, 701, 1], [532, 702, 1], [533, 703, 1], [534, 704, 1], [535, 705, 1], [536, 706, 1], [537, 707, 4], [538, 711, 3]]
-function getWordSyllables(w){
+      <div class="legend" style="background-color:#21ACF1;">End Rhyme</div>
 
-	var p=w.split(" ");
-	var syllables=[];
-	var stress=[];
-	for (var v in p){
-	    if (p[v].endsWith('1')){
-	        syllables.push(p[v].slice(0,-1));
-	        stress.push(1);
-		} else if (p[v].endsWith('2')) {
-            syllables.push(p[v].slice(0,-1));
-            stress.push(2);
-		} else if (p[v].endsWith('0')) {
-            syllables.push(p[v].slice(0,-1));
-            stress.push(0);
-		}
-		else {
-            syllables.push(p[v]);
-            stress.push(null);
-		}
-	}
+      <div class="legend" style="background-color:#FFF97A;">Perfect Rhyme</div>
 
-	return [syllables,stress];
-}
+      <div class="legend" style="background-color:#FFADAD;">Semi Rhyme </div>
 
-function test(s){
-  s = s.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]?/g,"")
-  var t = s.split(" ")
+      <div class="legend" style="background-color:#EFA5FF;">Head Rhyme </div>
 
-  var x = []
-  console.log(s)
-  console.log(t)
+      <div class="legend" style="background-color:#91FF7E;">Identical Rhyme </div>
+      
+      <div class="legend" style="background-color:#FFDE7E;">Pararhyme </div>
+      
+      </div>
 
+</div>
 
-  for(var i = 0; i < t.length; i++){
-    x.push("")
-  }
+	<div id="container">
+		<div class="track" id="PER_track"> </div>
+		<div class="track" id="SYL_track"> </div>
+		<div class="track" id="SEM_track"> </div>
+		<div class="track" id="HEA_track"> </div>
+		<div class="track" id="IDE_track"> </div>
+    <div class="track" id="PAR_track"> </div></div>
+	</div>
+	
+<div id="current"> </div>
+	
+	<script src="jquery-1.11.1.js"></script>
+	<script src="velocity.min.js" id="library"></script>
+	<script src="main.js"></script>
 
+	
 
-  for(var i = 0; i < t.length; i++){
-    for(var j = i+1; j < i + 11 && j < t.length; j++){
-
-      var bundle1 = getWordSyllables(getWordPronunciation(t[i]))
-      var phones1 = bundle1[0]
-      var stresses1 = bundle1[1]
-    	var syllables1 =group(bundle1);
-
-
-      var bundle2 = getWordSyllables(getWordPronunciation(t[j]))
-      var phones2 = bundle2[0]
-      var stresses2 = bundle2[1]
-    	var syllables2 =group(bundle2);
-
-      var ans = whatRhyme(syllables1, phones1, stresses1, syllables2, phones2, stresses2)
-      if(ans == "NO"){
-        var bundle1 = getWordSyllables(getWordPronunciation(t[i]))
-        var phones1 = bundle1[0]
-        var stresses1 = bundle1[1]
-      	var syllables1 =group2(bundle1);
-
-
-        var bundle2 = getWordSyllables(getWordPronunciation(t[j]))
-        var phones2 = bundle2[0]
-        var stresses2 = bundle2[1]
-      	var syllables2 =group2(bundle2);
-
-        ans = whatRhyme(syllables1, phones1, stresses1, syllables2, phones2, stresses2)
-      }
-
-      if(ans != ""){
-          x[i] = ans
-          x[j] = ans
-      }
-
-
-    }
-
-
-  }
-
-
-
-
-  for(var i = 0; i < file.length; i++){
-    file[i].push(0)
-  }
-  for(var j = 0; j < file2.length; j++){
-    var rhyme = x[file2[j][0]]
-    if(rhyme == 'per' || rhyme == 'syl'){
-      file[file2[j][1]+file2[j][2]-1][2] = rhyme
-    }
-    else if(rhyme == 'sem'){
-      file[file2[j][1]+file2[j][2]-1][2] = rhyme
-      file[file2[j][1]+file2[j][2]-2][2] = rhyme
-    }
-    else{
-      for(var z = file2[j][1]; z < file2[j][1]+file2[j][2]; z++){
-        file[z][2] = rhyme
-      }
-    }
-
-  }
-  console.log(file)
-
-
-  print(file)
-
-
-
-}
-
-function isSubset(arr1, arr2){
-  for(var i = 0;  i < arr1.length; i++){
-    if(arr1[i] == arr2[0]){
-      for(var j = 0; j < arr2.length; j++){
-        if(arr1[i] != arr2[j]){
-          break
-        }
-        if(j == arr2.length-1){
-          return true
-        }
-      }
-    }
-  }
-  return false
-}
-
-
-function rhymingPart(phones, stresses) {
-  var idx = 0;
-  for (var i = stresses.length-1; i >= 0; i--) {
-    if (!(stresses[i]==null)) {
-      idx = i-1;
-      break;
-    }
-  }
-  return [phones.slice(idx).join('-'), idx];
-}
-
-function rhymingPart2(phones, stresses) {
-  var idx = 0;
-  for (var i = stresses.length-1; i >= 0; i--) {
-    if (!(stresses[i]==null)) {
-      idx = i;
-      break;
-    }
-  }
-  return [phones.slice(idx).join('-'), idx];
-}
-
-function lastvowelidx(stresses){
-  for (var i = stresses.length-1; i >= 0; i--) {
-    if (stresses[i]!=null) {
-      return stresses[i]
-    }
-  }
-}
-
-function group(s){
-    var phones=s[0];
-    var stresses=s[1];
-
-    var syllables = []
-
-    while (phones.length > 0){
-        var temp = rhymingPart(phones, stresses)
-        syllables.push(temp[0])
-        phones = phones.slice(0, temp[1])
-        stresses = stresses.slice(0, temp[1])
-    }
-
-    return syllables.reverse()
-}
-
-function group2(s){
-    var phones=s[0];
-    var stresses=s[1];
-
-    var syllables = []
-
-    while (phones.length > 0){
-        var temp = rhymingPart2(phones, stresses)
-        syllables.push(temp[0])
-        phones = phones.slice(0, temp[1])
-        stresses = stresses.slice(0, temp[1])
-    }
-
-    return syllables.reverse()
-}
-
-function consonants(phones, stresses){
-  var consonants = []
-  for(var i = 0; i < phones.length; i++){
-    if(stresses[i] == null){
-      consonants.push(phones[i])
-    }
-  }
-  return consonants
-}
-
-function equalsylls(syllables1, syllables2){
-  for(var i = 0; i < Math.min(syllables1.length, syllables2.length); i++){
-    if(syllables1[i] != syllables2[i]){
-      return 0
-    }
-  }
-  return 1
-}
-
-
-function whatRhyme(syllables1, phones1, stresses1, syllables2, phones2, stresses2){
-
-
-    if(equalsylls(syllables1, syllables2)){
-      return "ide"
-    }
-    else if(syllables1[syllables1.length-1] == syllables2[syllables2.length-1]){
-      if(lastvowelidx(stresses1) == lastvowelidx(stresses2)){
-        return "per"
-      }
-      else{
-        return "syl"
-      }
-    }
-    else if(syllables1[syllables1.length-1] == syllables2[syllables2.length-2]){
-      return 'sem'
-    }
-    else if(syllables1[syllables1.length-2] == syllables2[syllables2.length-1]){
-      return "sem"
-    }
-    else if(phones1[0] == phones2[0] && stresses1[0] == null){
-      return "hea"
-    }
-
-    else if(consonants(phones1, stresses1) == consonants(phones2, stresses2)){
-      return "par"
-    }
-    else{
-      return ""
-    }
-
-}
-
-
-function print(item){
-	document.getElementById('textbox').value=JSON.stringify(item)
-}
-
-
-</script>
-<input type='text' id='t'>
-<br>
-<button onclick='test(document.getElementById("t").value)'>
-	test
-</button>
-<br>
-<textarea name="Text1" cols="120" rows="50" id='textbox'></textarea>
 </body>
 </html>
