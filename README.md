@@ -4,8 +4,6 @@ Our project is built upon analyzing six different types of rhymes in songs: end 
 
 # Preview Link:
 
-https://project-zevnicsca.c9users.io/index.html
-
 https://pkqxdd.github.io/rhyme-demo/
 
 # Contributors
